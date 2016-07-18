@@ -41,15 +41,15 @@ The root directory of the project to search the module.
 
 **moduleName**
 
-  * Type: 'String'
-  * Default: null
+  * Type: `String`
+  * Default: `null`
 
 The name of the module that you want to find.
 
 **cachePath**
 
-  * Type: 'String'
-  * Default: null
+  * Type: `String`
+  * Default: `null`
 
 The path that you want to return without searching.
 
