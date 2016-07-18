@@ -2,10 +2,13 @@
 
 > Local and global search module directory.
 
+[![Travis](https://img.shields.io/travis/mrmlnc/npm-module-path.svg?style=flat-square)](https://travis-ci.org/mrmlnc/npm-module-path)
+[![AppVeyor](https://img.shields.io/appveyor/ci/mrmlnc/npm-module-path.svg?style=flat-square)](https://ci.appveyor.com/project/mrmlnc/npm-module-path)
+
 ## Install
 
 ```shell
-$ npm i -D npm-module-path
+$ npm i -S npm-module-path
 ```
 
 ## Why?
