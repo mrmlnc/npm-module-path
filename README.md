@@ -2,8 +2,8 @@
 
 > Local and global search module directory.
 
-[![Travis](https://img.shields.io/travis/mrmlnc/npm-module-path.svg?style=flat-square)](https://travis-ci.org/mrmlnc/npm-module-path)
-[![AppVeyor](https://img.shields.io/appveyor/ci/mrmlnc/npm-module-path.svg?style=flat-square)](https://ci.appveyor.com/project/mrmlnc/npm-module-path)
+[![Travis Status](https://travis-ci.org/mrmlnc/npm-module-path.svg?branch=master)](https://travis-ci.org/mrmlnc/npm-module-path)
+[![AppVeyor status](https://ci.appveyor.com/api/projects/status/81n2iq2h2cyef8mf?svg=true)](https://ci.appveyor.com/project/mrmlnc/npm-module-path)
 
 ## Install
 
