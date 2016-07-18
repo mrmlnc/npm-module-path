@@ -13,7 +13,7 @@ $ npm i -S npm-module-path
 
 ## Why?
 
-Primarily, this module is designed to search modules for VS Code (language server, etc).
+Primarily, this module is designed to search modules for VS Code (language server extension, etc).
 
   * Dependencies free
   * Returns the path to the module directory (without `require`)
