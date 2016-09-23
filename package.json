@@ -21,7 +21,9 @@
     "resolve",
     "search",
     "module",
-    "path"
+    "path",
+    "npm",
+    "global"
   ],
   "devDependencies": {
     "mocha": "^2.5.3",
