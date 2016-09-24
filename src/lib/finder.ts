@@ -20,10 +20,10 @@ export function getDefaultNodePaths(root: string): string[] {
 		defaultPaths.push('/usr/lib/node_modules');
 	} else if (isDarwin) {
 		defaultPaths.push('/usr/local/lib/node_modules');
-		defaultPaths.push(path.join(process.env.HOME, '.npm-packages'));
 	}
 
 	if (process.env.NVM_PATH && (isLinux || isDarwin)) {
+		defaultPaths.push(path.join(process.env.HOME, '.npm-packages'));
 		defaultPaths.push(path.join(process.env.NVM_PATH, '..', 'node_modules'));
 	}
 
