@@ -1,6 +1,6 @@
 # npm-module-path
 
-> Local and global search module directory.
+> Get the path of the given package(s) if it is installed globally or locally.
 
 [![Travis Status](https://travis-ci.org/mrmlnc/npm-module-path.svg?branch=master)](https://travis-ci.org/mrmlnc/npm-module-path)
 [![AppVeyor status](https://ci.appveyor.com/api/projects/status/81n2iq2h2cyef8mf?svg=true)](https://ci.appveyor.com/project/mrmlnc/npm-module-path)
@@ -13,45 +13,51 @@ $ npm i -S npm-module-path
 
 ## Why?
 
-Primarily, this module is designed to search modules for VS Code (language server extension, etc).
+Primarily, this module is designed to search modules for VS Code (Language Server Extensions, etc).
 
-  * Dependencies free
-  * Returns the path to the module directory (without `require`)
+  * Dependencies free.
+  * Returns the path to the module directory (without `require`).
+  * Can work with an array of dependencies.
 
 ## Usage
 
 ```js
-const getModulePath = require('npm-module-path');
+const nmp = require('npm-module-path');
 
-getModulePath('moduleName', './workspaceDir', 'cachePath')
-  .then((modulePath) => {
-    console.log(modulePath);
-  })
-  .catch(console.error);
+nmp.resolveOne('mocha').then((filepath) => {
+	console.log(filepath); // ['/home/travis/.nvm/versions/node/v6.6.0/lib/node_modules/mocha']
+});
+
+nmp.resolveMany(['mocha', 'tslint']).then((filepaths) => {
+	console.log(filepaths); // ['node_modules/mocha', '/usr/lib/node_modules/tslint']
+});
 ```
 
-## Arguments
+## resolveOne(toResolve: string, root?: string, options?: IResolveOptions)
+## resolveMany(toResolve: string[], root?: string, options?: IResolveOptions)
 
-**workspaceRoot**
+## IResolveOptions
+
+**cache**
 
   * Type: `String`
-  * Default: `./`
+  * Default: `.`
 
 The root directory of the project to search the module.
 
-**moduleName**
+**resolveDir**
 
-  * Type: `String`
-  * Default: `null`
+  * Type: `Boolean`
+  * Default: `false`
 
-The name of the module that you want to find.
+Return the path to the directory where the module was found.
 
-**cachePath**
+**resolveOnlyByPrefix**
 
-  * Type: `String`
-  * Default: `null`
+  * Type: `Boolean`
+  * Default: `false`
 
-The path that you want to return without searching.
+Skip search modules in the default directories and search them only by `npm config get prefix`.
 
 ## Changelog
 
