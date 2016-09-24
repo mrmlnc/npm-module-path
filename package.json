@@ -1,6 +1,6 @@
 {
   "name": "npm-module-path",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Local and global search module directory",
   "license": "MIT",
   "repository": "mrmlnc/npm-module-path",
@@ -12,10 +12,14 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "test": "xo && mocha"
+    "pretest": "rimraf out && tslint src/**/*.ts && tsc",
+    "test": "mocha out/**/*.spec.js",
+    "prepublish": "npm run test",
+    "start": "rimraf out && tsc --watch"
   },
+  "main": "out/index.js",
   "files": [
-    "index.js"
+    "out/index.js"
   ],
   "keywords": [
     "resolve",
@@ -26,21 +30,9 @@
     "global"
   ],
   "devDependencies": {
-    "mocha": "^2.5.3",
-    "xo": "^0.16.0"
-  },
-  "xo": {
-    "rules": {
-      "no-var": 2,
-      "prefer-const": [2, { "destructuring": "all" }],
-      "space-before-function-paren": [2, "never"],
-      "babel/arrow-parens": [2, "always"],
-      "babel/object-curly-spacing": [2, "always"],
-      "babel/generator-star-spacing": [2, "after"]
-    },
-    "envs": [
-      "node",
-      "mocha"
-    ]
+    "typescript": "^2.0.0",
+    "tslint": "^3.15.0",
+    "mocha": "^3.0.0",
+    "rimraf": "^2.5.0"
   }
 }
