@@ -12,13 +12,16 @@ export function getDefaultNodePaths(root: string): string[] {
 		root = '.';
 	}
 
-	const defaultPaths = [path.join(root, 'node_modules')];
+	let defaultPaths = [path.join(root, 'node_modules')];
 	if (isWindows && process.env.NVM_SYMLINK) {
 		defaultPaths.push(path.join(process.env.NVM_SYMLINK, 'node_modules'));
 	} else if (isLinux) {
 		defaultPaths.push('/usr/lib/node_modules');
 	} else if (isDarwin) {
-		defaultPaths.push('/usr/local/lib/node_modules');
+		defaultPaths = defaultPaths.concat([
+			'/usr/local/lib/node_modules',
+			path.join(process.env.HOME, '.npm-packages')
+		]);
 	}
 
 	if (process.env.NVM_PATH && (isLinux || isDarwin)) {

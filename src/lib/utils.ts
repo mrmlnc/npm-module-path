@@ -7,10 +7,10 @@ export function normalize(filepath: string): string {
 }
 
 export function getNodeModulesDir(): string {
-	const isLinux = process.platform === 'linux';
+	const isWindows = process.platform === 'win32';
 
 	let nodeModules = 'node_modules';
-	if (isLinux) {
+	if (!isWindows) {
 		nodeModules = 'lib/node_modules';
 	}
 
