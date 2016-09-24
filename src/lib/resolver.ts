@@ -57,17 +57,10 @@ export function resolveManyModules(toResolve: string[], paths: string[], options
 		});
 
 		if (toContinue.length !== 0 && !skipTry) {
-			return resolveManyModuleByPrefix(toContinue, options, true).then((resultsByPrefix) => {
-				resultsByPrefix.forEach((modulePath) => {
-					for (let index = 0; index < result.length; index++) {
-						if (result[index] === undefined) {
-							result[index] = modulePath;
-							return;
-						}
-					}
+			return resolveManyModuleByPrefix(toContinue, options, true).then((resultByPrefix) => {
+				return result.map((filepath) => {
+					return filepath === undefined ? resultByPrefix.shift() : filepath;
 				});
-
-				return result;
 			});
 		}
 
