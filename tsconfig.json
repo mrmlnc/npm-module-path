@@ -9,6 +9,6 @@
 		"noImplicitAny": false,
 		"experimentalDecorators": true,
 		"removeComments": true,
-		"declaration": false
+		"declaration": true
 	}
 }
