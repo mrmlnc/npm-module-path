@@ -25,7 +25,7 @@ describe('Resolve one module path', () => {
 
 	it('Search `npm` module with `resolveOnlyByPrefix` option.', () => {
 		return resolveOne('npm', '.', { resolveOnlyByPrefix: true }).then((filepath) => {
-			assert.ok(/node_modules\/npm$/.test(filepath));
+			assert.ok(/npm$/.test(filepath));
 		});
 	});
 
@@ -65,7 +65,7 @@ describe('Resolve many modules paths', () => {
 
 	it('Search `npm` module with `resolveOnlyByPrefix` option.', () => {
 		return resolveMany(['npm'], '.', { resolveOnlyByPrefix: true }).then((filepaths) => {
-			assert.ok(/node_modules\/npm$/.test(filepaths[0]));
+			assert.ok(/npm$/.test(filepaths[0]));
 		});
 	});
 

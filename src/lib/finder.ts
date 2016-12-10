@@ -35,12 +35,22 @@ export function getNodePrefix(): Promise<string> {
 
 	return new Promise((resolve, reject) => {
 		const prefix = spawn(npmCommand, ['config', 'get', 'prefix']);
+		let globalPath;
+		let err;
+
 		prefix.stdout.on('data', (data: Buffer) => {
-			const globalPath = data.toString().replace(/[\s\r\n]+$/, '');
-			return resolve(globalPath);
+			globalPath = data.toString().replace(/[\s\r\n]+$/, '');
 		});
+
 		prefix.stderr.on('data', (data: Buffer) => {
-			return reject(data.toString());
+			err = data.toString();
+		});
+
+		prefix.on('close', () => {
+			if (globalPath) {
+				return resolve(globalPath);
+			}
+			reject(err);
 		});
 	});
 }
