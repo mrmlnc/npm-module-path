@@ -48,10 +48,7 @@ export function resolveMany(toResolve: string[], root?: string, options?: IResol
 	}, options);
 
 	if (options.cache) {
-		if (!Array.isArray(options.cache)) {
-			options.cache = [options.cache];
-		}
-
+		options.cache = [].concat(options.cache);
 		return Promise.resolve(options.cache);
 	}
 
