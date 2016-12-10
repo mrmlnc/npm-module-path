@@ -2,14 +2,14 @@
 
 import * as path from 'path';
 
-import { normalize, getNodeModulesDir, pathExist } from './utils';
+import { normalize, getNodeModulesDir, pathExists } from './utils';
 import { getNodePrefix } from './finder';
 
 import { IResolveOptions } from '../index';
 
 export function resolveOneModule(toResolve: string, paths: string[], options: IResolveOptions): Promise<string> {
 	return Promise
-		.all(paths.map((dir) => pathExist(path.join(dir, toResolve))))
+		.all(paths.map((dir) => pathExists(path.join(dir, toResolve))))
 		.then((resolves: boolean[]) => {
 			for (let index = 0; index < resolves.length; index++) {
 				if (resolves[index]) {
@@ -37,7 +37,7 @@ export function resolveOneModuleByPrefix(toResolve: string, options: IResolveOpt
 
 export function resolveManyModules(toResolve: string[], paths: string[], options: IResolveOptions, skipTry = false): Promise<string[]> {
 	const promises = toResolve.map((name) => {
-		return Promise.all(paths.map((dir) => pathExist(path.join(dir, name))));
+		return Promise.all(paths.map((dir) => pathExists(path.join(dir, name))));
 	});
 
 	return Promise.all(promises).then((resolves) => {

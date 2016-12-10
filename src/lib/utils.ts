@@ -17,6 +17,10 @@ export function getNodeModulesDir(): string {
 	return nodeModules;
 }
 
-export function pathExist(filepath: string) {
-	return new Promise((resolve) => fs.stat(filepath, (err) => resolve(!err)));
+export function pathExists(filepath: string): Promise<boolean> {
+	return new Promise((resolve) => {
+		fs.access(filepath, (err) => {
+			resolve(!err);
+		});
+	});
 }
