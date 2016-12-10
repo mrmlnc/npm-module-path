@@ -12,6 +12,7 @@
     "node": ">=6.0.0"
   },
   "main": "out/index.js",
+  "typings": "out/index.d.ts",
   "files": [
     "out/lib",
     "out/index.d.ts",
