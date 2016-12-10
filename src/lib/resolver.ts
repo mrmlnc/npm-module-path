@@ -35,7 +35,7 @@ export function resolveOneModuleByPrefix(toResolve: string, options: IResolveOpt
 	});
 }
 
-export function resolveManyModules(toResolve: string[], paths: string[], options: IResolveOptions, skipTry = false): Promise<string[]> {
+export function resolveManyModules(toResolve: string[], paths: string[], options: IResolveOptions, skipTry: boolean): Promise<string[]> {
 	const promises = toResolve.map((name) => {
 		return Promise.all(paths.map((dir) => pathExists(path.join(dir, name))));
 	});
@@ -68,7 +68,7 @@ export function resolveManyModules(toResolve: string[], paths: string[], options
 	});
 }
 
-export function resolveManyModuleByPrefix(toResolve: string[], options: IResolveOptions, skipTry = false): Promise<string[]> {
+export function resolveManyModuleByPrefix(toResolve: string[], options: IResolveOptions, skipTry: boolean): Promise<string[]> {
 	return getNodePrefix().then((prefix) => {
 		const globalModules = [path.join(prefix, getNodeModulesDir())];
 		return resolveManyModules(toResolve, globalModules, options, skipTry);

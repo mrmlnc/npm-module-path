@@ -55,8 +55,8 @@ export function resolveMany(toResolve: string[], root?: string, options?: IResol
 	const defaultPaths = getDefaultNodePaths(root);
 
 	if (options.resolveOnlyByPrefix) {
-		return resolveManyModuleByPrefix(toResolve, options);
+		return resolveManyModuleByPrefix(toResolve, options, false);
 	}
 
-	return resolveManyModules(toResolve, defaultPaths, options);
+	return resolveManyModules(toResolve, defaultPaths, options, false);
 }
