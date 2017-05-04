@@ -1,5 +1,7 @@
 # npm-module-path
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mrmlnc/npm-module-path.svg)](https://greenkeeper.io/)
+
 > Get the path of the given package(s) if it is installed globally or locally.
 
 [![Travis Status](https://travis-ci.org/mrmlnc/npm-module-path.svg?branch=master)](https://travis-ci.org/mrmlnc/npm-module-path)
