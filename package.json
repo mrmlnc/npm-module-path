@@ -28,10 +28,10 @@
   ],
   "devDependencies": {
     "@types/mocha": "^2.2.33",
-    "@types/node": "0.0.2",
+    "@types/node": "7.0.16",
     "mocha": "^3.0.0",
     "rimraf": "^2.5.0",
-    "tslint": "^3.15.0",
+    "tslint": "^5.2.0",
     "typescript": "^2.0.0"
   },
   "scripts": {
